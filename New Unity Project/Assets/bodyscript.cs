@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public class bodyscript : MonoBehaviour {
 	public float hSensitivity=1;
+    public float movespeed=10;
 	Rigidbody myBody;
 
 	void Awake() { myBody = GetComponent<Rigidbody>(); }
