@@ -10,6 +10,8 @@ public class head : MonoBehaviour {
 	void Start () {
 		lastMouseY = Input.mousePosition.y;
 		vangle = 0;
+        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
@@ -19,5 +21,14 @@ public class head : MonoBehaviour {
 		lastMouseY = mouseY;
         vangle = Mathf.Clamp(vangle, -90, 90);
 		transform.localRotation = Quaternion.Euler(new Vector3( vangle, 0));
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hitInfo;
+            Physics.Raycast(new Ray(transform.position, transform.forward), out hitInfo);
+            if (hitInfo.collider.GetComponent<liftable>() != null)
+            {
+
+            }
+        }
 	}
 }
