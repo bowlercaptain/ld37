@@ -17,6 +17,9 @@ public class negativeMover : MonoBehaviour
     void Update()
     {
         transform.rotation = zeroTarget.rotation * Quaternion.Inverse(toCopy.rotation);
-        transform.position = zeroTarget.position - Quaternion.Inverse(zeroTarget.rotation) * (poser.relpos * zeroTarget.localScale.x);
+		Debug.Log(poser.relpos);
+		Debug.Log(poser.relpos * zeroTarget.localScale.x);
+		Debug.Log(Quaternion.Inverse(zeroTarget.rotation) * (poser.relpos * zeroTarget.localScale.x));
+        transform.position = zeroTarget.position - Quaternion.Inverse(toCopy.rotation) * (poser.relpos * zeroTarget.localScale.x);
     }
 }
